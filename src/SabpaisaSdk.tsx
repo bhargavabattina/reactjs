@@ -1,6 +1,7 @@
 import { PaymentInitModal } from 'pg-test-project';
 import * as React from 'react';
 import { FunctionComponent, useState } from 'react';
+import uniqid from 'uniqid' // If user wants to redirect to PG without checkout form.import this package
 
 export interface SabPaisaSdkProps {
     isOpen: boolean;
@@ -69,7 +70,7 @@ const SabpaisaSdk: FunctionComponent<SabPaisaSdkProps> = (props: SabPaisaSdkProp
                 </form>
                 {
                     (clientCode && callbackUrl && transUserPassword && transUserName && authkey && authiv) && isOpen &&
-                    <PaymentInitModal env={''} clientCode={clientCode} transUserPassword={transUserPassword} transUserName={transUserName} isOpen={isOpen} authkey={authkey} authiv={authiv} clientTxnId={''} payerName={props.payerName} payerEmail={props.payerEmail} payerMobile={props.payerMobile} payerAddress={props.payerAddress} amount={props.amount} amountType={''} udf1={''} udf2={''} udf3={''} udf4={''} udf5={''} udf6={''} udf7={''} udf8={''} udf9={''} udf10={''} udf11={''} udf12={''} udf13={''} udf14={''} udf15={''} udf16={''} udf17={''} udf18={''} udf19={''} udf20={''} channelId={''} programId={''} mcc={''} />
+                    <PaymentInitModal env={''} clientCode={clientCode} transUserPassword={transUserPassword} transUserName={transUserName} isOpen={isOpen} authkey={authkey} authiv={authiv} clientTxnId={uniqid()} payerName={props.payerName} payerEmail={props.payerEmail} payerMobile={props.payerMobile} payerAddress={props.payerAddress} amount={props.amount} amountType={''} udf1={''} udf2={''} udf3={''} udf4={''} udf5={''} udf6={''} udf7={''} udf8={''} udf9={''} udf10={''} udf11={''} udf12={''} udf13={''} udf14={''} udf15={''} udf16={''} udf17={''} udf18={''} udf19={''} udf20={''} channelId={''} programId={''} mcc={''} />
                 }
 
             </header>
